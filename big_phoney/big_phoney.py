@@ -1,8 +1,8 @@
-from phonetic_dictionary import PhoneticDictionary
-from prediction_model import PredictionModel
-from shared_constants import PREDICTION_MODEL_WEIGHTS_PATH
-from preprocessors import *
-import utils
+from .phonetic_dictionary import PhoneticDictionary
+from .prediction_model import PredictionModel
+from .shared_constants import PREDICTION_MODEL_WEIGHTS_PATH
+from .preprocessors import *
+from . import utils
 
 
 class BigPhoney:
@@ -16,6 +16,12 @@ class BigPhoney:
         self.pred_model = PredictionModel()
         self.pred_model.load_weights(PREDICTION_MODEL_WEIGHTS_PATH)
 
+    def apply_preprocessors(self, input_string):
+        preprocessed_string = input_string
+        for preprocessor in self.preprocessors:
+            preprocessed_string = preprocessor.process(preprocessed_string)
+        return preprocessed_string
+
     def phonize(self, input_string):
         phones = []
         preprocessed_string = self.apply_preprocessors(input_string)
@@ -27,12 +33,6 @@ class BigPhoney:
                 phones.append(phonetic_sp)
 
         return '  '.join(phones)
-
-    def apply_preprocessors(self, input_string):
-        preprocessed_string = input_string
-        for preprocessor in self.preprocessors:
-            preprocessed_string = preprocessor.process(preprocessed_string)
-        return preprocessed_string
 
     def _phonize_word(self, word):
         dict_sp = self.phonetic_dict.lookup(word)

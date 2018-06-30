@@ -2,7 +2,7 @@ import unittest
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import preprocessors
+import big_phoney.preprocessors as preprocessors
 
 
 class TestPreprocessors(unittest.TestCase):

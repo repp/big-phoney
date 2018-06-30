@@ -1,7 +1,7 @@
 import re
 import os
 import pickle
-from shared_constants import ALLOWED_CHARS
+from .shared_constants import ALLOWED_CHARS
 
 
 def safe_split(phrase):

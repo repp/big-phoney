@@ -2,7 +2,7 @@ import unittest
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import utils
+import big_phoney.utils as utils
 
 
 class TestUtils(unittest.TestCase):

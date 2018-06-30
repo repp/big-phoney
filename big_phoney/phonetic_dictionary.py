@@ -1,5 +1,5 @@
-from shared_constants import PHONETIC_DICT_PATH
-from utils import load_pickle_dict
+from .shared_constants import PHONETIC_DICT_PATH
+from .utils import load_pickle_dict
 
 
 class PhoneticDictionary:

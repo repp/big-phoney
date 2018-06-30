@@ -4,10 +4,11 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 from tqdm import tqdm
 from keras.callbacks import ModelCheckpoint, EarlyStopping
-from prediction_model import PredictionModel
-from prediction_model_data_loader import PredictionModelDataLoader
 from sklearn.model_selection import train_test_split
-from utils import count_phonemes_with_emphasis
+from big_phoney.prediction_model import PredictionModel
+from big_phoney.prediction_model_data_loader import PredictionModelDataLoader
+from big_phoney.utils import count_phonemes_with_emphasis
+
 
 class PredictionModelTrainer:
 
@@ -37,10 +38,10 @@ class PredictionModelTrainer:
 
         prediction_model.training_model.compile(optimizer='adam', loss='categorical_crossentropy')
         prediction_model.training_model.fit([self.char_input_train, h0, c0] + inputs, outputs,
-                  batch_size=256,
-                  epochs=epochs,
-                  validation_split=validation_size,
-                  callbacks=callbacks)
+                                            batch_size=256,
+                                            epochs=epochs,
+                                            validation_split=validation_size,
+                                            callbacks=callbacks)
 
         if validation_size == 0:
             prediction_model.training_model.save_weights(weights_path)
@@ -87,9 +88,8 @@ if __name__ == '__main__':
     model = PredictionModel()
     model.training_model.summary()
     model_trainer = PredictionModelTrainer()
-    #model_trainer.train(model, dev_weights_path)
+    model_trainer.train(model, dev_weights_path)
 
     # Evaluation
-    #model.load_weights(dev_weights_path)
-    model.load_weights('../data/prediction_model_weights.hdf5')
+    model.load_weights(dev_weights_path)
     model_trainer.evaluate(model)

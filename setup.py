@@ -5,17 +5,21 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="big_phoney",
-    version="0.0.1",
+    version="0.0.4",
     author="Ryan Epp",
     author_email="hey@ryanepp.com",
-    description="Get phonetic spellings and syllable counts for any english word!",
+    description="Get phonetic spellings and syllable counts for any english word. " +
+                "Works with made up and non-dictionary words.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/repp/big-phoney",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=['big_phoney.dev', 'big_phoney.test']),
+    package_data={'': ['data/*']},
+    include_package_data=True,
+    install_requires=['numpy', 'keras', 'inflect'],
     classifiers=(
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved ::  GNU GPL v3.0 License",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ),
 )

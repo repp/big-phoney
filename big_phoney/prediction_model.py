@@ -3,17 +3,16 @@ from keras.models import Model
 from keras.layers import Input, LSTM, Dense, Embedding, Dropout, Activation, Bidirectional
 from keras.layers import Concatenate, Dot, Reshape, RepeatVector, Lambda
 from keras.activations import softmax
-from prediction_model_utils import PredictionModelUtils, START_PHONE_SYM, END_PHONE_SYM, MAX_CHAR_SEQ_LEN, MAX_PADDED_PHONE_SEQ_LEN
+from .prediction_model_utils import PredictionModelUtils, START_PHONE_SYM, END_PHONE_SYM, MAX_CHAR_SEQ_LEN, MAX_PADDED_PHONE_SEQ_LEN
 
 
 class PredictionModel:
 
-    def __init__(self, search_width = 3):
+    def __init__(self, search_width=3):
         self.hidden_nodes = 256
         self.search_width = search_width
         self.utils = PredictionModelUtils()
         self.training_model, self.encoder, self.decoder = self._build_model()
-
 
     def _build_model(self):
         emb_size = 256

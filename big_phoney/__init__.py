@@ -1,1 +1,1 @@
-name = 'big_phoney'
+from .big_phoney import BigPhoney

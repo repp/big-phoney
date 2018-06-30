@@ -3,8 +3,8 @@ import os
 import csv
 import pickle
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from shared_constants import PHONETIC_DICT_PATH, PHONETIC_SYMBOLS_PATH, ABBREV_DICT_PATH, QTY_ABBREV_DICT_PATH
-from phonetic_dictionary_generator import PhoneticDictionaryGenerator 
+from big_phoney.shared_constants import PHONETIC_DICT_PATH, PHONETIC_SYMBOLS_PATH, ABBREV_DICT_PATH, QTY_ABBREV_DICT_PATH
+from phonetic_dictionary_generator import PhoneticDictionaryGenerator
 
 
 def csv_to_pkl_dict(csv_path, pkl_dict_path):

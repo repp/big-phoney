@@ -1,6 +1,6 @@
 import numpy as np
-from shared_constants import PHONETIC_SYMBOLS_PATH, ALLOWED_CHARS
-from utils import load_pickle_dict
+from .shared_constants import PHONETIC_SYMBOLS_PATH, ALLOWED_CHARS
+from .utils import load_pickle_dict
 
 START_PHONE_SYM = '\t'
 END_PHONE_SYM = '\n'

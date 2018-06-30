@@ -1,8 +1,8 @@
 import re
 import time
 import inflect
-from utils import load_pickle_dict, is_number, contains_digits
-from shared_constants import ALLOWED_SYMBOLS, ABBREV_DICT_PATH, QTY_ABBREV_DICT_PATH
+from .utils import load_pickle_dict, is_number, contains_digits
+from .shared_constants import ALLOWED_SYMBOLS, ABBREV_DICT_PATH, QTY_ABBREV_DICT_PATH
 
 
 class ExpandCurrencySymbols:
