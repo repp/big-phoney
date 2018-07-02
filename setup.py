@@ -16,7 +16,7 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=['dev', 'test']),
     package_data={'': ['data/*']},
     include_package_data=True,
-    install_requires=['numpy', 'keras', 'inflect', 'h5py'],
+    install_requires=['numpy', 'keras', 'inflect', 'h5py', 'tensorflow'],
     classifiers=(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
