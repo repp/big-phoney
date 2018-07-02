@@ -1,7 +1,7 @@
 import re
 import time
 import inflect
-from .utils import load_pickle_dict, is_number, contains_digits
+from .utils import load_pickle_dict, is_number, contains_digits, space_pad_regex
 from .shared_constants import ALLOWED_SYMBOLS, ABBREV_DICT_PATH, QTY_ABBREV_DICT_PATH
 
 
@@ -86,7 +86,7 @@ class FormatEmailAndURLs:
 class ReplaceTimes:
 
     def __init__(self):
-        self.time_formats = ['%H:%M', '%I:%M', '%I:%M%p']
+        self.time_formats = ['%I:%M', '%I:%M%p', '%H:%M']
 
     def get_time_obj(self, input_str):
         for time_fmt in self.time_formats:
@@ -140,14 +140,19 @@ class SpacePadSymbols:
 
     def __init__(self):
         allowed_symbols_escaped = re.escape(''.join(ALLOWED_SYMBOLS))
-        self.not_alphanmueric_nor_allowed_regex = "([^a-z0-9\s" + allowed_symbols_escaped + "])"
-
-    @staticmethod
-    def space_pad_regex(input_string, regex):
-        return re.sub(regex, r' \1 ', input_string).strip()
+        self.not_alphanmueric_nor_allowed_regex = "([^a-z0-9,\s" + allowed_symbols_escaped + "])"
 
     def process(self, input_string):
-        return self.space_pad_regex(input_string.lower(), self.not_alphanmueric_nor_allowed_regex)
+        return space_pad_regex(input_string.lower(), self.not_alphanmueric_nor_allowed_regex)
+
+
+class SpacePadNumbers:
+
+    def __init__(self):
+        self.digit_regex = r'(\d[\d\.\,]*)'
+
+    def process(self, input_string):
+        return space_pad_regex(input_string.lower(), self.digit_regex)
 
 
 class ReplaceAbbreviations:

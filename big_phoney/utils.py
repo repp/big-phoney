@@ -40,6 +40,10 @@ def contains_digits(word):
     return len(word) != 0 and bool(re.search('(\d+)', word))
 
 
+def space_pad_regex(input_string, regex):
+    return re.sub(regex, r' \1 ', input_string).strip()
+
+
 def count_phonemes_with_emphasis(phonetic_sp):
 
     def phone_has_emphasis(phone):

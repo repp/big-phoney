@@ -39,7 +39,12 @@ class PredictionModelUtils:
 
     def word_to_char_ids(self, word):
         word_vec = np.zeros((MAX_CHAR_SEQ_LEN))
-        for t, char in enumerate(word):
-            word_vec[t] = self.char_to_id[char]
+        t = 0
+        for char in word:
+            if char in self.char_to_id:
+                word_vec[t] = self.char_to_id[char]
+                t += 1
+            if t >= MAX_CHAR_SEQ_LEN:
+                break
         return np.array([word_vec])
 

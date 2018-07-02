@@ -1,6 +1,5 @@
 from .phonetic_dictionary import PhoneticDictionary
 from .prediction_model import PredictionModel
-from .shared_constants import PREDICTION_MODEL_WEIGHTS_PATH
 from .preprocessors import *
 from . import utils
 
@@ -8,13 +7,12 @@ from . import utils
 class BigPhoney:
 
     DEFAULT_PREPROCESSORS = [ExpandCurrencySymbols, FormatEmailAndURLs, ReplaceTimes,  SpacePadSymbols,
-                             ReplaceAbbreviations, ReplaceNumbers]
+                             SpacePadNumbers, ReplaceAbbreviations, ReplaceNumbers]
 
     def __init__(self, preprocessors=DEFAULT_PREPROCESSORS):
         self.preprocessors = [preprocessor_class() for preprocessor_class in preprocessors]
         self.phonetic_dict = PhoneticDictionary()
         self.pred_model = PredictionModel()
-        self.pred_model.load_weights(PREDICTION_MODEL_WEIGHTS_PATH)
 
     def apply_preprocessors(self, input_string):
         preprocessed_string = input_string

@@ -3,6 +3,7 @@ from keras.models import Model
 from keras.layers import Input, LSTM, Dense, Embedding, Dropout, Activation, Bidirectional
 from keras.layers import Concatenate, Dot, Reshape, RepeatVector, Lambda
 from keras.activations import softmax
+from .shared_constants import PREDICTION_MODEL_WEIGHTS_PATH
 from .prediction_model_utils import PredictionModelUtils, START_PHONE_SYM, END_PHONE_SYM, MAX_CHAR_SEQ_LEN, MAX_PADDED_PHONE_SEQ_LEN
 
 
@@ -13,6 +14,7 @@ class PredictionModel:
         self.search_width = search_width
         self.utils = PredictionModelUtils()
         self.training_model, self.encoder, self.decoder = self._build_model()
+        self.load_weights(PREDICTION_MODEL_WEIGHTS_PATH)
 
     def _build_model(self):
         emb_size = 256
@@ -112,7 +114,7 @@ class PredictionModel:
         self.training_model.load_weights(weights_path)
 
     def predict(self, word):
-        char_id_input_seq = self.utils.word_to_char_ids(word)
+        char_id_input_seq = self.utils.word_to_char_ids(word.upper())
         return self.predict_from_char_ids(char_id_input_seq)
 
     def predict_from_char_ids(self, char_id_seq):
