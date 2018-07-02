@@ -128,7 +128,7 @@ but it will always return *something* no matter what you throw at it. In most ca
 the `BigPhoney` class.
 
 ## Contributing
-If you want to contribute to this project that's great! Make sure to check out dev/README.md for more info.
+If you want to contribute to this project that's great! Make sure to check out [dev/README.md](https://github.com/repp/big-phoney/tree/master/dev) for more info.
 
 ## Acknowledgements
 The dictionary and data used to train the phonetic prediction model came from the
