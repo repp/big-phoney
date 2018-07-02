@@ -1,5 +1,7 @@
 # Big Phoney
 
+[![Build Status](https://travis-ci.org/repp/big-phoney.svg?branch=master)](https://travis-ci.org/repp/big-phoney) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 Big Phoney is a python module that generates phonetic pronunciations from english words.
 For example, given the word "dinosaur", Big Phoney will return "D AY1 N AH0 S AO2 R". This is sometimes called
 "Grapheme-to-Phoneme Conversion" or G2P. Big Phoney works for any word, even those that don't appear in the dictionary and it's

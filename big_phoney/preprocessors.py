@@ -86,7 +86,7 @@ class FormatEmailAndURLs:
 class ReplaceTimes:
 
     def __init__(self):
-        self.time_formats = ['%I:%M', '%I:%M%p', '%H:%M']
+        self.time_formats = ['%H:%M', '%I:%M', '%I:%M%p']
 
     def get_time_obj(self, input_str):
         for time_fmt in self.time_formats:
