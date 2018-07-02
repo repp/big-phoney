@@ -1,5 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+big_phoney/__pycache__/
+big_phoney/__pycache__/*
 *.py[cod]
 *$py.class
 
