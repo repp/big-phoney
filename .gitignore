@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+*__pycache__/
 big_phoney/__pycache__/
 big_phoney/__pycache__/*
 *.py[cod]
@@ -106,4 +106,4 @@ venv.bak/
 .mypy_cache/
 .idea
 .idea/
-.DS_Store
+*.DS_Store

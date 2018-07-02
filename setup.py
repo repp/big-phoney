@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="big_phoney",
-    version="0.0.5",
+    version="1.0.0",
     author="Ryan Epp",
     author_email="hey@ryanepp.com",
     description="Get phonetic spellings and syllable counts for any english word. " +
