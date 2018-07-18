@@ -1,4 +1,4 @@
-# Big Phoney
+![Big Ohoney](https://github.com/repp/big-phoney/blob/master/dev/dev_data/logo_tight_white.png?raw=true)
 
 [![Build Status](https://travis-ci.org/repp/big-phoney.svg?branch=master)](https://travis-ci.org/repp/big-phoney) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
