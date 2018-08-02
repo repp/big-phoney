@@ -30,7 +30,7 @@ accurate 75.4% of the time. Even when a predicted pronunciation isn't completely
 ## Installation
 **Install with PyPI:**
 ```
-pip install big-phoney
+pip3 install big-phoney
 ```
 **Install from source:**
 ```
@@ -38,6 +38,7 @@ git clone https://github.com/repp/big-phoney.git
 cd big_phoney
 python setup.py install
 ```
+**Note:** BigPhoney only works with python3 right now.
 ## Usage
 First, import Big Phoney:
 ```python
