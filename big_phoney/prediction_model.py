@@ -39,7 +39,7 @@ class PredictionModel:
             return context
 
         # Shared Components - Encoder
-        char_inputs = Input(shape=(None,))
+        char_inputs = Input(shape=(MAX_CHAR_SEQ_LEN,))
         char_embedding_layer = Embedding(self.utils.char_token_count, emb_size, input_length=MAX_CHAR_SEQ_LEN)
         encoder = Bidirectional(LSTM(self.hidden_nodes, return_sequences=True, recurrent_dropout=recurrent_dropout))
 
