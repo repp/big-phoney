@@ -140,7 +140,7 @@ class SpacePadSymbols:
 
     def __init__(self):
         allowed_symbols_escaped = re.escape(''.join(ALLOWED_SYMBOLS))
-        self.not_alphanmueric_nor_allowed_regex = "([^a-z0-9,\s" + allowed_symbols_escaped + "])"
+        self.not_alphanmueric_nor_allowed_regex = r"([^a-z0-9,\s" + allowed_symbols_escaped + "])"
 
     def process(self, input_string):
         return space_pad_regex(input_string.lower(), self.not_alphanmueric_nor_allowed_regex)
@@ -212,6 +212,6 @@ class ReplaceNumbers:
             if not contains_digits(word):
                 preprocessed_strings.append(word)
                 continue
-            word_no_digits = re.sub("([\d\.\,]+)", self.digit_group_replacement_func, word)
+            word_no_digits = re.sub(r"([\d\.\,]+)", self.digit_group_replacement_func, word)
             preprocessed_strings.append(word_no_digits)
         return ' '.join(preprocessed_strings).strip()

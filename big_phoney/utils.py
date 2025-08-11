@@ -24,7 +24,7 @@ def safe_split(phrase):
         return phrase
 
     phrase = replace_periods_with_spaces(phrase)
-    return re.split('[\s\-_—]+', phrase.strip())
+    return re.split(r'[\s\-_—]+', phrase.strip())
 
 
 def sanitize(word):
@@ -33,11 +33,11 @@ def sanitize(word):
 
 
 def is_number(word):
-    return len(word) != 0 and not bool(re.search('[^\d\.,]', word))
+    return len(word) != 0 and not bool(re.search(r'[^\d\.,]', word))
 
 
 def contains_digits(word):
-    return len(word) != 0 and bool(re.search('(\d+)', word))
+    return len(word) != 0 and bool(re.search(r'(\d+)', word))
 
 
 def space_pad_regex(input_string, regex):
